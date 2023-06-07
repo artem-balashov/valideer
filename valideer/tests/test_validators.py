@@ -942,8 +942,8 @@ class TestValidator(unittest.TestCase):
         V.set_name_for_types("integer", int, long)
         V.set_name_for_types("number", float)
         V.set_name_for_types("string", str, unicode)
-        V.set_name_for_types("array", list, collections.Sequence)
-        V.set_name_for_types("object", dict, collections.Mapping)
+        V.set_name_for_types("array", list, collections.abc.Sequence)
+        V.set_name_for_types("object", dict, collections.abc.Mapping)
 
         self._testValidation({"+foo": "number",
                               "?bar": ["integer"],

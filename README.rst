@@ -387,26 +387,26 @@ Containers
 ##########
 
 * ``valideer.HomogeneousSequence(item_schema=None, min_length=None, max_length=None)``:
-  Accepts sequences (``collections.Sequence`` instances excluding strings) with
+  Accepts sequences (``collections.abc.Sequence`` instances excluding strings) with
   elements that are valid for ``item_schema`` (if specified) and length between
   ``min_length`` and ``max_length`` (if specified).
 
   :Shortcut: [*item_schema*]
 
 * ``valideer.HeterogeneousSequence(*item_schemas)``: Accepts fixed length
-  sequences (``collections.Sequence`` instances excluding strings) where the
+  sequences (``collections.abc.Sequence`` instances excluding strings) where the
   ``i``-th element is valid for the ``i``-th ``item_schema``.
 
   :Shortcut: (*item_schema*, *item_schema*, ..., *item_schema*)
 
 * ``valideer.Mapping(key_schema=None, value_schema=None)``: Accepts mappings
-  (``collections.Mapping`` instances) with keys that are valid for ``key_schema``
+  (``collections.abc.Mapping`` instances) with keys that are valid for ``key_schema``
   (if specified) and values that are valid for ``value_schema`` (if specified).
 
   :Shortcut: *N/A*
 
 * ``valideer.Object(optional={}, required={}, additional=True)``: Accepts JSON-like
-  objects (``collections.Mapping`` instances with string keys). Properties that
+  objects (``collections.abc.Mapping`` instances with string keys). Properties that
   are specified as ``optional`` or ``required`` are validated against the respective
   value schema. Any additional properties are either allowed (if ``additional``
   is True), disallowed (if ``additional`` is False) or validated against the

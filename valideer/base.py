@@ -326,14 +326,14 @@ def adapts(**schemas):
     @decorator
     def adapting(func, *args, **kwargs):
         adapted = validate(inspect.getcallargs(func, *args, **kwargs), adapt=True)
-        argspec = inspect.getargspec(func)
+        argspec = inspect.getfullargspec(func)
 
-        if argspec.varargs is argspec.keywords is None:
+        if argspec.varargs is argspec.varkw is None:
             # optimization for the common no varargs, no keywords case
             return func(**adapted)
 
         adapted_varargs = adapted.pop(argspec.varargs, ())
-        adapted_keywords = adapted.pop(argspec.keywords, {})
+        adapted_keywords = adapted.pop(argspec.varkw, {})
         if not adapted_varargs:  # keywords only
             if adapted_keywords:
                 adapted.update(adapted_keywords)
