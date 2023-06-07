@@ -11,7 +11,7 @@ setup(
     author="Artem Balashov",
     author_email="artem.balashov@inivtae.com",
     packages=find_packages(),
-    install_requires=["decorator"],
+    install_requires=["decorator>=5.0.5"],
     test_suite="valideer.tests",
     platforms=["any"],
     keywords="validation adaptation typechecking jsonschema",
